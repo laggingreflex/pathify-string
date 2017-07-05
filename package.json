@@ -1,6 +1,6 @@
 {
   "name": "pathify-string",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Make Node's Path method available as getters on String",
   "main": "index.js",
   "files": [],
