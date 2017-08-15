@@ -5,11 +5,16 @@ for (const key in path) {
     Object.defineProperty(String.prototype, key, {
       get() {
         const str = this + '';
-        const value = path[key](str);
+        let value;
+        try {
+          value = path[key](str);
+        } catch (error) {}
         const fn = function(...args) {
           return path[key](str, ...args.map(a => a + ''));
         };
-        fn.valueOf = () => value;
+        if (value) {
+          fn.valueOf = () => value;
+        }
         return fn;
       }
     });
